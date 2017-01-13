@@ -1,0 +1,285 @@
+applet, object, iframe,body,h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, eal, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,dd, dl, dt, li, ol, ul,fieldset, form, label, legend, caption,img, header, container {
+    margin: 0;
+    padding: 0;
+    outline:none;
+    border: none;
+    box-sizing: border-box;
+}
+
+@import "compass/css3";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
+$blue:#297cc1;
+
+body{
+    background:#222;
+    color:#ddd;
+    font-size:13px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.logo{
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.hero{	
+	padding: 0 !important;
+}
+
+.fltrgt{
+    float: right;
+}
+
+.billboard{
+	background: url(../img/hero.jpg) no-repeat 0 0;
+	background-position: center center;
+	min-height: 639px;
+	margin-bottom: 30px;
+	border-top: 1px solid #111;
+	border-bottom:1px solid #666;
+}
+
+h1.heading{
+	font-size: 30px;
+	text-transform: uppercase;
+}
+
+.col-sm-12.heading_col {
+    height: 70px;
+}
+
+.form-group.select{
+	margin-bottom: 0;
+}
+
+select{
+	position:relative;
+	bottom:30px;
+}
+
+.heading_col{
+	margin-bottom: 0;
+}
+
+input.btn{
+	background: $blue !important;
+	color: #fff;
+}
+
+p.error{
+	color: tomato;
+}
+
+.header{
+	position:relative;
+	background:#222;
+}
+
+.movies{
+	border-bottom:1px solid #555;
+	padding-bottom: 20px;
+	margin-bottom: 50px;
+}
+
+#searchMovieForm{
+	margin-top: 30px;
+	margin-bottom: 7px;
+	
+	.form-group{
+		margin-bottom: 0;
+	}
+
+	.form-holder{
+		margin-bottom: 0;
+		border: 1px solid darken(#3f3f3f,4%);
+		background: #000;
+		height: 42px;
+		margin-bottom: 10px;
+		@include border-radius(0 5px 5px 0);
+	}
+	
+	input.form-control{
+		background: #000;
+		border: none;
+		float: left;
+		width: 75%;
+		height: 40px;
+		color:#ddd;
+	}
+
+	input.btn{
+		float: left;
+		width: 25%;
+		height: 40px;
+		@include border-radius(0 5px 5px 0);
+
+		&:hover,&:active{
+			color:#fff;
+			background-color: lighten($blue,5%) !important;
+		}
+	}
+}
+
+.ng-invalid-required.ng-submitted .form-holder{
+	border:1px solid tomato !important;
+}
+
+#results{
+	background: #303030;
+	padding: 20px 10px;
+	padding-bottom: 0;
+	position:absolute;
+	z-index:99999;
+	width:100%;
+
+	h2{
+		margin-bottom: 20px;
+		margin-left: 20px;
+	}
+}
+
+.closeBtn{
+	color:#ddd;
+	position: absolute;
+	right: 5px;
+	top: 0;
+
+	&:hover{
+		color:darken(#ddd, 20%);
+	}
+}
+
+.bg_container{
+	padding: 0;
+	background-attachment: fixed;
+	width: 100%;
+	// top:150px;
+}
+
+.bg{
+    position: fixed;
+    @include opacity(0.3);
+    max-width: 100%;
+}
+
+.result_image img, .seasons img{
+	margin-bottom: 5px;
+	border:1px solid #222;
+	&:hover{
+		@include box-shadow(0 3px 5px #111);
+		border: 1px solid #666;
+	}
+}
+
+p.overview{
+	margin-bottom: 30px;
+	line-height:1.8em;
+}
+
+.poster{
+	margin-top:50px;
+	margin-bottom: 50px;
+	border:3px solid #888;
+}
+
+.year_aired{
+	margin-bottom: 30px;
+	font-style:italic;
+	font-weight: 500;
+}
+
+h2.title{
+	font-weight: 800;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	font-size: 23px;
+	text-transform:uppercase;
+	
+	span.episode_name{
+		text-transform:none;
+	}
+
+	span.date{
+		font-weight: 500;
+		font-style:italic;
+	}
+}
+
+.movie_details, .tv_details{
+	background: rgba(0,0,0,0.8);
+	margin-top: 50px;
+	margin-bottom: 50px;
+
+	h2.title{
+		margin-top: 30px;
+	}
+
+	p{
+		margin-bottom: 15px;
+
+		&.genres{
+			margin-bottom: 30px;
+		}
+	}
+
+	h3.tagline{
+		margin-bottom: 20px;
+		font-style:italic;
+		font-size:17px;
+	}
+
+	.movie_images{
+		padding: 0;
+	}
+}
+
+.episodes{
+	margin-top: 20px;
+	margin-bottom: 30px;
+	border-bottom:1px solid #555;
+	padding-bottom: 10px;
+	
+	.name{
+		font-size: 16px;
+		font-weight: 700;
+		margin-bottom: 20px;
+	}
+
+	span{
+		font-weight: 500;
+		font-style:italic;
+	}
+}
+
+.episode_thumbnail{
+	border:1px solid #222;
+	&:hover{
+		border:1px solid #555;
+	}
+}
+
+.season_episode{
+	margin-bottom: 10px;
+}
+
+@media handheld, only screen and (min-width: 1200px) { 
+	.preview_poster{
+		min-height:276px;
+		margin-bottom: 10px;
+	}
+}
+
+@media handheld, only screen and (max-width: 1200px) { 
+	.preview_poster{
+		margin-bottom: 25px;
+	}
+}
+
+@media handheld, only screen and (max-width: 768px) { 
+	.logo{
+		margin: 0 auto;
+		margin-top: 15px;
+	}
+
+	#searchMovieForm{margin-top: 20px;margin-bottom: 20px;}
+}

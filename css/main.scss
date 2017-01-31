@@ -31,8 +31,9 @@ body{
 }
 
 .billboard{
-	background: url(../img/hero.jpg) no-repeat 0 0;
+	// background: url(../img/hero.jpg) no-repeat 0 0;
 	background-position: center center;
+	// background-size:cover;
 	min-height: 639px;
 	margin-bottom: 30px;
 	border-top: 1px solid #111;
@@ -152,8 +153,10 @@ p.error{
 .bg_container{
 	padding: 0;
 	background-attachment: fixed;
-	width: 100%;
-	// top:150px;
+	// width: 100%;
+	background-size:cover;
+	background-position: top center;
+	background-repeat:no-repeat;
 }
 
 .bg{
@@ -168,6 +171,18 @@ p.error{
 	&:hover{
 		@include box-shadow(0 3px 5px #111);
 		border: 1px solid #666;
+	}
+}
+
+.tv_details .seasons{
+
+	img{
+		margin-top: 15px;
+	}
+
+	p{
+		text-align: center;
+		margin-bottom: 3px;
 	}
 }
 
@@ -198,7 +213,7 @@ h2.title{
 	span.episode_name{
 		text-transform:none;
 	}
-
+	
 	span.date{
 		font-weight: 500;
 		font-style:italic;

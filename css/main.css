@@ -28,7 +28,6 @@ body {
 }
 
 .billboard {
-  background: url(../img/hero.jpg) no-repeat 0 0;
   background-position: center center;
   min-height: 639px;
   margin-bottom: 30px;
@@ -150,7 +149,9 @@ p.error {
 .bg_container {
   padding: 0;
   background-attachment: fixed;
-  width: 100%;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
 }
 
 .bg {
@@ -169,6 +170,14 @@ p.error {
   -moz-box-shadow: 0 3px 5px #111111;
   box-shadow: 0 3px 5px #111111;
   border: 1px solid #666;
+}
+
+.tv_details .seasons img {
+  margin-top: 15px;
+}
+.tv_details .seasons p {
+  text-align: center;
+  margin-bottom: 3px;
 }
 
 p.overview {

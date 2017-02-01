@@ -11,9 +11,9 @@ applet, object, iframe,body,h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
 $blue:#297cc1;
 
 body{
-    background:#222;
-    color:#ddd;
-    font-size:13px;
+    background: #222;
+    color:#aaa;
+    font-size:14px;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -72,8 +72,10 @@ p.error{
 }
 
 .header{
-	position:relative;
 	background:#222;
+	.container{
+		position:relative;
+	}
 }
 
 .movies{
@@ -131,7 +133,7 @@ p.error{
 	padding-bottom: 0;
 	position:absolute;
 	z-index:99999;
-	width:100%;
+	// width:100%;
 
 	h2{
 		margin-bottom: 20px;
@@ -154,6 +156,7 @@ p.error{
 	padding: 0;
 	background-attachment: fixed;
 	// width: 100%;
+	min-height:450px;
 	background-size:cover;
 	background-position: top center;
 	background-repeat:no-repeat;
@@ -186,15 +189,14 @@ p.error{
 	}
 }
 
-p.overview{
-	margin-bottom: 30px;
-	line-height:1.8em;
-}
+
 
 .poster{
-	margin-top:50px;
+	margin-top:30px;
 	margin-bottom: 50px;
 	border:3px solid #888;
+	position:relative;
+	bottom:170px;
 }
 
 .year_aired{
@@ -205,47 +207,91 @@ p.overview{
 
 h2.title{
 	font-weight: 800;
-	margin-top: 40px;
-	margin-bottom: 20px;
-	font-size: 23px;
+	margin-top: 15px;
+	margin-bottom: 3px;
+	font-size: 30px;
 	text-transform:uppercase;
+	color:#ddd;
 	
 	span.episode_name{
 		text-transform:none;
-	}
-	
-	span.date{
-		font-weight: 500;
-		font-style:italic;
+	}	
+}
+
+.result_title{
+	background:rgba(0,0,0,0.8);
+	background:$blue;
+	position:relative;
+	bottom:67px;
+	padding-bottom: 15px;
+}
+
+.result_main{
+	position:relative;
+	bottom:67px;
+	background:#222;
+
+	.list-group{
+		position:relative;
+		bottom:170px;
 	}
 }
 
 .movie_details, .tv_details{
-	background: rgba(0,0,0,0.8);
-	margin-top: 50px;
+	// background: rgba(0,0,0,0.8);
+	margin-top: 40px;
 	margin-bottom: 50px;
 
 	h2.title{
-		margin-top: 30px;
+		margin-top: 15px;
 	}
 
 	p{
-		margin-bottom: 15px;
+		margin-bottom: 7px;
 
 		&.genres{
 			margin-bottom: 30px;
 		}
-	}
 
-	h3.tagline{
-		margin-bottom: 20px;
-		font-style:italic;
-		font-size:17px;
+		&.overview{
+			margin-bottom: 30px;
+			line-height:1.8em;
+		}
+	}
+	
+	.rating{
+		margin-bottom: 10px;
+		background:$blue;
+		color:#fff;
+		padding:2px;
+		max-width:55px;
+		font-size: 15px;
+
+		p{margin-bottom: 0;text-align: center;}
 	}
 
 	.movie_images{
 		padding: 0;
 	}
+
+	.castmember{
+
+		img{margin-bottom: 5px;margin-top: 10px;}
+
+		p{
+			margin-bottom: 5px;
+			text-align: center;
+			b{
+				color:$blue;
+			}
+		}
+	}
+}
+
+h3.tagline{
+	font-style:italic;
+	font-size:17px;
+	color:#fff;
 }
 
 .episodes{

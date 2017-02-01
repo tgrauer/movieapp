@@ -26,34 +26,36 @@
 
 <body ng-app='movieApp'>
 
-    <div class="container header" ng-controller="SearchCtrl as search">
-        <div class="row">
-            <div class="col-sm-4">
-                <a href="#/"><img src="img/logo.png" alt="" class="img-responsive logo"></a>
-            </div>
-            <div class="col-md-4 col-md-offset-4 col-sm-5 col-sm-offset-3">
-                <form name="searchMovieForm" id="searchMovieForm" ng-submit="searchMovieForm.$valid && searchMovie()" novalidate>
-                    <div class="form-holder">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="searchterm" ng-model="formInfo.searchterm" ng-required="true" ng-minlength="2" placeholder="search...">
+    <div class="container-fluid header">
+        <div class="container" ng-controller="SearchCtrl as search">
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="#/"><img src="img/logo.png" alt="" class="img-responsive logo"></a>
+                </div>
+                <div class="col-md-4 col-md-offset-4 col-sm-5 col-sm-offset-3">
+                    <form name="searchMovieForm" id="searchMovieForm" ng-submit="searchMovieForm.$valid && searchMovie()" novalidate>
+                        <div class="form-holder">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="searchterm" ng-model="formInfo.searchterm" ng-required="true" ng-minlength="2" placeholder="search...">
+                            </div>
+                            <input type="submit" class="btn btn-md" value="Search">
                         </div>
-                        <input type="submit" class="btn btn-md" value="Search">
-                    </div>
-                    <label class="radio-inline"><input ng-checked="true" ng-model="formInfo.searchtype" type="radio" name="searchtype" value="movie">Movies</label>
-                    <label class="radio-inline"><input ng-model="formInfo.searchtype" type="radio" name="searchtype" value="tv">TV Show</label>
-                </form>
+                        <label class="radio-inline"><input ng-checked="true" ng-model="formInfo.searchtype" type="radio" name="searchtype" value="movie">Movies</label>
+                        <label class="radio-inline"><input ng-model="formInfo.searchtype" type="radio" name="searchtype" value="tv">TV Show</label>
+                    </form>
 
-                <p class="error" ng-show="searched && !results.length">No results found</p>
+                    <p class="error" ng-show="searched && !results.length">No results found</p>
+                </div>
             </div>
-        </div>
 
-        <div class="row" ng-show="searched && results.length" id="results">
-            <div class="col-sm-12">
-                <h2>Search Results</h2>
-                <a class="closeBtn" ng-click="searched=false"><i class="fa fa-times-circle fa-2x" aria-hidden="true"></i></a>
-                
-                <div class="col-md-2 col-sm-3 col-xs-6 preview_poster" ng-repeat="result in results | limitTo:12" ng-hide="result.poster_path == null || result.original_language !='en'">
-                    <a ng-click="$parent.searched=false" class="result_image" href="#/{{formInfo.searchtype}}?id={{result.id}}"><img src="https://image.tmdb.org/t/p/w342{{result.poster_path}}" alt="" class="img-responsive"></a>
+            <div class="row" ng-show="searched && results.length" id="results">
+                <div class="col-sm-12">
+                    <h2>Search Results</h2>
+                    <a class="closeBtn" ng-click="searched=false"><i class="fa fa-times-circle fa-2x" aria-hidden="true"></i></a>
+                    
+                    <div class="col-md-2 col-sm-3 col-xs-6 preview_poster" ng-repeat="result in results | limitTo:12" ng-hide="result.poster_path == null || result.original_language !='en'">
+                        <a ng-click="$parent.searched=false" class="result_image" href="#/{{formInfo.searchtype}}?id={{result.id}}"><img src="https://image.tmdb.org/t/p/w342{{result.poster_path}}" alt="" class="img-responsive"></a>
+                    </div>
                 </div>
             </div>
         </div>

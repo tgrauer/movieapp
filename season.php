@@ -55,12 +55,13 @@
                 <h2 class="title"><?php echo $showname;?> - <span class="episode_name">{{season.name}}</span> <span class="year_aired fltrgt">{{season.air_date_year}}</span></h2>
                 <br />
                 <div class="row episodes" ng-repeat="episode in season.episodes">
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <a href="episode.php?season_number={{season.season_number}}&tvid={{tvid}}&episode_number={{episode.episode_number}}&showname=<?php echo $showname;?>"><img src="https://image.tmdb.org/t/p/w185{{episode.still_path}}" alt="" class="img-responsive episode_thumbnail"></a>
                     </div>
 
-                    <div class="col-sm-9">
-                        <p class="name">{{episode.name}} - <span>Episode {{episode.episode_number}}</span></p>
+                    <div class="col-sm-8">
+                        <p class="name"><span>{{episode.season_number}}x{{episode.episode_number}} - </span>{{episode.name}} </p>
+                        <p class="air_date">{{episode.air_date | date}}</p>
                         <p class="overview">{{episode.overview}}</p>
                     </div>
                 </div>
@@ -71,6 +72,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.4.5/angular-route.min.js"></script>
 <script src="js/site.js"></script>
 <script src="js/app.js"></script>
 

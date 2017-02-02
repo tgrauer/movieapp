@@ -21,6 +21,7 @@ body{
 .logo{
 	margin-top: 10px;
 	margin-bottom: 5px;
+	max-width:240px;
 }
 
 .hero{	
@@ -134,7 +135,7 @@ p.error{
 	padding-bottom: 0;
 	position:absolute;
 	z-index:99999;
-	// width:100%;
+	width:100%;
 
 	h2{
 		margin-bottom: 20px;
@@ -346,6 +347,12 @@ h3.section_heading{
 	}
 }
 
+.season_overview{
+	p.overview{
+		margin-bottom: 50px;
+	}
+}
+
 
 h3.tagline{
 	font-style:italic;
@@ -367,6 +374,15 @@ h3.tagline{
 	.name{
 		font-size: 16px;
 		font-weight: 700;
+
+		span{
+			color:$light_blue;
+			font-weight: 700;
+		}
+	}
+	.air_date{
+		font-size: 13px;
+		font-style:italic;
 		margin-bottom: 20px;
 	}
 
@@ -415,6 +431,14 @@ h3.tagline{
 	.bg_container{
 		min-height:320px;
 		background-attachment:scroll;
+	}
+
+	.logo{
+		max-width:185px;
+	}
+
+	#searchMovieForm{
+		margin-top: 10px;
 	}
 }
 

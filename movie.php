@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-sm-4 col-md-3">
                 <img class="img-responsive poster hidden-xs" src="https://image.tmdb.org/t/p/w342{{movie.poster_path}}" alt="">
-                <div class="list-group" ng-init="tab=1">
+                <div class="list-group">
                     <a href="" ng-click="tab=1" data-toggle="tab" class="list-group-item" ng-class="{'active':tab === 1}">Overview</a>
                     <a href="" ng-click="tab=2" data-toggle="tab" class="list-group-item" ng-class="{'active':tab === 2}">Gallery</a>
                     <a href="" ng-click="tab=3" data-toggle="tab" class="list-group-item" ng-class="{'active':tab === 3}">Cast</a>

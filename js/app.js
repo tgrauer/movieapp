@@ -97,7 +97,7 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
             $scope.id = $routeParams.id;
             $scope.overview=true;
             $scope.cast=false;
-            // tab1=true;
+            $scope.tab=1;
 
             $http.get("https://api.themoviedb.org/3/movie/"+$scope.id+"?api_key=0f83568cb022f28816a16308dcc1371c&append_to_response=images,credits,recommendations,videos")
                 .then(function(response) {
@@ -120,8 +120,9 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
         $scope.loadTVShowDetails = function(){
 
             $scope.id = $routeParams.id;
+            $scope.tab=1;
              
-            $http.get("https://api.themoviedb.org/3/tv/"+$scope.id+"?api_key=0f83568cb022f28816a16308dcc1371c&append_to_response=images")
+            $http.get("https://api.themoviedb.org/3/tv/"+$scope.id+"?api_key=0f83568cb022f28816a16308dcc1371c&append_to_response=images,credits,recommendations,videos")
                 .then(function(response) {
                 $scope.tvshow = response.data;
                 $scope.tvshow.vote_average = Math.round( $scope.tvshow.vote_average * 10 ) / 10;
@@ -129,6 +130,10 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                 $scope.tvshow.end_date = $scope.tvshow.last_air_date.substr(0,4);
                 
                 console.log($scope.tvshow);
+                
+                $scope.getIframeSrc = function (videokey) {
+                  return 'https://www.youtube.com/embed/' + $scope.tvshow.videos.results[0].key;
+                };
 
                 $scope.show_seasons = function(){
                     if($scope.tvshow.seasons.length>1){

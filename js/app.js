@@ -99,11 +99,14 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
             $scope.cast=false;
             // tab1=true;
 
-            $http.get("https://api.themoviedb.org/3/movie/"+$scope.id+"?api_key=0f83568cb022f28816a16308dcc1371c&append_to_response=images,credits")
+            $http.get("https://api.themoviedb.org/3/movie/"+$scope.id+"?api_key=0f83568cb022f28816a16308dcc1371c&append_to_response=images,credits,recommendations,videos")
                 .then(function(response) {
                 $scope.movie = response.data;
                 $scope.movie.vote_average = Math.round( $scope.movie.vote_average * 10 ) / 10;
                 $scope.movie.release_date = $scope.movie.release_date.substr(0,4);
+                $scope.getIframeSrc = function (videokey) {
+                  return 'https://www.youtube.com/embed/' + $scope.movie.videos.results[0].key;
+                };
                 console.log($scope.movie);
 
             });
@@ -197,4 +200,14 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
         $scope.loadSesasonDetails();
 
     });
+    
+
+    movieApp.config(["$sceDelegateProvider", function($sceDelegateProvider) {
+        $sceDelegateProvider.resourceUrlWhitelist([
+            'self',
+            "https://www.youtube.com/embed/**"
+        ]);
+    }]);
+
+
 })();

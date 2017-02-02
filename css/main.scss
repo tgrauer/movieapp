@@ -9,6 +9,7 @@ applet, object, iframe,body,h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
 @import "compass/css3";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
 $blue:#297cc1;
+$light_blue:#b8edff;
 
 body{
     background: #222;
@@ -188,8 +189,6 @@ p.error{
 	}
 }
 
-
-
 .poster{
 	margin-top:30px;
 	margin-bottom: 50px;
@@ -215,6 +214,19 @@ h2.title{
 	span.episode_name{
 		text-transform:none;
 	}	
+}
+
+h3.section_heading{
+	margin-bottom: 20px;
+	margin-left: 15px;
+	font-weight: 800;
+	font-size: 22px;
+	color:$light_blue;
+}
+
+.embed-responsive{
+	margin-top: 30px;
+	margin-bottom: 50px;
 }
 
 .result_title{
@@ -256,10 +268,14 @@ h2.title{
 			margin-bottom: 30px;
 			line-height:1.8em;
 		}
+
+		.plabel{
+			color:$light_blue;
+		}
 	}
 	
 	.rating{
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 		background:$blue;
 		color:#fff;
 		padding:2px;
@@ -269,13 +285,21 @@ h2.title{
 		p{margin-bottom: 0;text-align: center;}
 	}
 
-	.movie_images{
-		padding: 0;
+	.movie_images img{
+		margin: 10px;
 	}
 
 	.castmember{
 
-		img{margin-bottom: 5px;margin-top: 10px;}
+		img{
+			margin-bottom: 5px;
+			margin-top: 10px;
+			border:1px solid #222;
+
+			&:hover{
+				border: 1px solid #666;
+			}
+		}
 
 		p{
 			margin-bottom: 5px;
@@ -290,7 +314,7 @@ h2.title{
 h3.tagline{
 	font-style:italic;
 	font-size:17px;
-	color:#fff;
+	color:$light_blue;
 }
 
 .episodes{

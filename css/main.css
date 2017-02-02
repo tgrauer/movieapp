@@ -208,6 +208,19 @@ h2.title span.episode_name {
   text-transform: none;
 }
 
+h3.section_heading {
+  margin-bottom: 20px;
+  margin-left: 15px;
+  font-weight: 800;
+  font-size: 22px;
+  color: #b8edff;
+}
+
+.embed-responsive {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
 .result_title {
   background: rgba(0, 0, 0, 0.8);
   background: #297cc1;
@@ -243,8 +256,11 @@ h2.title span.episode_name {
   margin-bottom: 30px;
   line-height: 1.8em;
 }
+.movie_details p .plabel, .tv_details p .plabel {
+  color: #b8edff;
+}
 .movie_details .rating, .tv_details .rating {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   background: #297cc1;
   color: #fff;
   padding: 2px;
@@ -255,12 +271,16 @@ h2.title span.episode_name {
   margin-bottom: 0;
   text-align: center;
 }
-.movie_details .movie_images, .tv_details .movie_images {
-  padding: 0;
+.movie_details .movie_images img, .tv_details .movie_images img {
+  margin: 10px;
 }
 .movie_details .castmember img, .tv_details .castmember img {
   margin-bottom: 5px;
   margin-top: 10px;
+  border: 1px solid #222;
+}
+.movie_details .castmember img:hover, .tv_details .castmember img:hover {
+  border: 1px solid #666;
 }
 .movie_details .castmember p, .tv_details .castmember p {
   margin-bottom: 5px;
@@ -273,7 +293,7 @@ h2.title span.episode_name {
 h3.tagline {
   font-style: italic;
   font-size: 17px;
-  color: #fff;
+  color: #b8edff;
 }
 
 .episodes {

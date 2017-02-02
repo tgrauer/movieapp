@@ -197,6 +197,31 @@ p.error{
 	bottom:170px;
 }
 
+.poster.poster_orgpos{
+	bottom:0;
+}
+
+.actor{
+	background:#141414;
+	border-top:1px solid #333;
+	padding-top: 30px;
+
+	p.overview{
+		line-height:1.8em;
+		margin-top: 30px;
+	}
+
+	.preview_poster{
+		min-height:185px;
+	}
+}
+
+.featuredin{
+	margin-top: 40px;
+	border-top:1px solid #444;
+	padding-top: 50px;
+}
+
 .year_aired{
 	margin-bottom: 30px;
 	font-style:italic;
@@ -226,7 +251,7 @@ h3.section_heading{
 
 .embed-responsive{
 	margin-top: 30px;
-	margin-bottom: 50px;
+	margin-bottom: 70px;
 }
 
 .result_title{
@@ -270,7 +295,7 @@ h3.section_heading{
 		}
 
 		.plabel{
-			color:$light_blue;
+			color:$light_blue
 		}
 	}
 	
@@ -289,7 +314,8 @@ h3.section_heading{
 		margin: 10px;
 	}
 
-	.castmember{
+	.castmember, .seasons{
+		min-height: 360px;
 
 		img{
 			margin-bottom: 5px;
@@ -311,10 +337,25 @@ h3.section_heading{
 	}
 }
 
+.actor_details{
+	p{
+		margin-bottom: 7px;
+		.plabel{
+			color:$light_blue;	
+		}
+	}
+}
+
+
 h3.tagline{
 	font-style:italic;
 	font-size:17px;
 	color:$light_blue;
+}
+
+.recommended{
+	border-top:1px solid #444;
+	padding-top: 50px;
 }
 
 .episodes{
@@ -367,3 +408,14 @@ h3.tagline{
 
 	#searchMovieForm{margin-top: 20px;margin-bottom: 20px;}
 }
+
+
+
+@media handheld, only screen and (max-width: 498px) { 
+	.bg_container{
+		min-height:320px;
+		background-attachment:scroll;
+	}
+}
+
+

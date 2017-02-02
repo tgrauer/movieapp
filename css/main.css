@@ -190,6 +190,29 @@ p.error {
   bottom: 170px;
 }
 
+.poster.poster_orgpos {
+  bottom: 0;
+}
+
+.actor {
+  background: #141414;
+  border-top: 1px solid #333;
+  padding-top: 30px;
+}
+.actor p.overview {
+  line-height: 1.8em;
+  margin-top: 30px;
+}
+.actor .preview_poster {
+  min-height: 185px;
+}
+
+.featuredin {
+  margin-top: 40px;
+  border-top: 1px solid #444;
+  padding-top: 50px;
+}
+
 .year_aired {
   margin-bottom: 30px;
   font-style: italic;
@@ -218,7 +241,7 @@ h3.section_heading {
 
 .embed-responsive {
   margin-top: 30px;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 
 .result_title {
@@ -274,26 +297,41 @@ h3.section_heading {
 .movie_details .movie_images img, .tv_details .movie_images img {
   margin: 10px;
 }
-.movie_details .castmember img, .tv_details .castmember img {
+.movie_details .castmember, .movie_details .seasons, .tv_details .castmember, .tv_details .seasons {
+  min-height: 360px;
+}
+.movie_details .castmember img, .movie_details .seasons img, .tv_details .castmember img, .tv_details .seasons img {
   margin-bottom: 5px;
   margin-top: 10px;
   border: 1px solid #222;
 }
-.movie_details .castmember img:hover, .tv_details .castmember img:hover {
+.movie_details .castmember img:hover, .movie_details .seasons img:hover, .tv_details .castmember img:hover, .tv_details .seasons img:hover {
   border: 1px solid #666;
 }
-.movie_details .castmember p, .tv_details .castmember p {
+.movie_details .castmember p, .movie_details .seasons p, .tv_details .castmember p, .tv_details .seasons p {
   margin-bottom: 5px;
   text-align: center;
 }
-.movie_details .castmember p b, .tv_details .castmember p b {
+.movie_details .castmember p b, .movie_details .seasons p b, .tv_details .castmember p b, .tv_details .seasons p b {
   color: #297cc1;
+}
+
+.actor_details p {
+  margin-bottom: 7px;
+}
+.actor_details p .plabel {
+  color: #b8edff;
 }
 
 h3.tagline {
   font-style: italic;
   font-size: 17px;
   color: #b8edff;
+}
+
+.recommended {
+  border-top: 1px solid #444;
+  padding-top: 50px;
 }
 
 .episodes {
@@ -343,5 +381,11 @@ h3.tagline {
   #searchMovieForm {
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+}
+@media handheld, only screen and (max-width: 498px) {
+  .bg_container {
+    min-height: 320px;
+    background-attachment: scroll;
   }
 }

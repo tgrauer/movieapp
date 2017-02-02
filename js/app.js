@@ -17,6 +17,11 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
             .when('/tv', {
                 templateUrl:'tv.php',
                 controller:'TVShowCtrl'
+            })
+
+            .when('/actor',{
+                templateUrl:'actor.php',
+                controller:'ActorCtrl'
             });
     });
 
@@ -104,9 +109,12 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                 $scope.movie = response.data;
                 $scope.movie.vote_average = Math.round( $scope.movie.vote_average * 10 ) / 10;
                 $scope.movie.release_date = $scope.movie.release_date.substr(0,4);
-                $scope.getIframeSrc = function (videokey) {
-                  return 'https://www.youtube.com/embed/' + $scope.movie.videos.results[0].key;
-                };
+
+                if($scope.movie.videos.results.length){
+                    $scope.getIframeSrc = function (videokey) {
+                      return 'https://www.youtube.com/embed/' + $scope.movie.videos.results[0].key;
+                    };
+                }
                 console.log($scope.movie);
 
             });
@@ -128,12 +136,15 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                 $scope.tvshow.vote_average = Math.round( $scope.tvshow.vote_average * 10 ) / 10;
                 $scope.tvshow.beg_date = $scope.tvshow.first_air_date.substr(0,4);
                 $scope.tvshow.end_date = $scope.tvshow.last_air_date.substr(0,4);
-                
+
                 console.log($scope.tvshow);
-                
-                $scope.getIframeSrc = function (videokey) {
-                  return 'https://www.youtube.com/embed/' + $scope.tvshow.videos.results[0].key;
-                };
+                console.log($scope.tvshow.videos.results.length);
+
+                if($scope.tvshow.videos.results.length){
+                    $scope.getIframeSrc = function (videokey) {
+                      return 'https://www.youtube.com/embed/' + $scope.tvshow.videos.results[0].key;
+                    };
+                }
 
                 $scope.show_seasons = function(){
                     if($scope.tvshow.seasons.length>1){
@@ -204,6 +215,21 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
 
         $scope.loadSesasonDetails();
 
+    });
+
+    movieApp.controller('ActorCtrl', function($scope,$http, $routeParams){
+
+        $scope.id = $routeParams.id;
+
+        $scope.loadActor= function(){
+            $http.get("https://api.themoviedb.org/3/person/"+$scope.id+"?api_key=0f83568cb022f28816a16308dcc1371c&append_to_response=images,movie_credits,tv_credits")
+            .then(function(response){
+                $scope.actor = response.data;
+
+                console.log($scope.actor);
+            });
+        }
+        $scope.loadActor();
     });
     
 

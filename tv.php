@@ -40,14 +40,16 @@
                         <p><span class="plabel">Channel</span>: {{tvshow.networks[0].name}}</p>
                     </div>
                 </div>
-                
-                <div class="embed-responsive embed-responsive-16by9">
+
+                <div class="embed-responsive embed-responsive-16by9" ng-show="tvshow.videos.results.length>0">
                     <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(tvshow.videos.results[0].key)}}" frameborder="0" allowfullscreen></iframe>
                 </div>
                 
-                <h3 class="section_heading">Recommended</h3>
-                <div class="col-sm-2 col-xs-6 preview_poster" ng-repeat="recc_tvshow in tvshow.recommendations.results | limitTo:6">
-                    <a class="result_image" href="#/tv?id={{recc_tvshow.id}}"><img src="https://image.tmdb.org/t/p/w300{{recc_tvshow.poster_path}}" alt="" class="img-responsive"></a>
+                <div class="recommended" ng-hide="tvshow.recommendations.results.length==0">
+                    <h3 class="section_heading">Recommended</h3>
+                    <div class="col-sm-2 col-xs-6 preview_poster" ng-repeat="recc_tvshow in tvshow.recommendations.results | limitTo:6">
+                        <a class="result_image" href="#/tv?id={{recc_tvshow.id}}"><img src="https://image.tmdb.org/t/p/w300{{recc_tvshow.poster_path}}" alt="" class="img-responsive"></a>
+                    </div>
                 </div>
             </div>
 
@@ -60,7 +62,7 @@
             </div>
 
             <div id="cast" ng-show="tab===3" class="col-sm-8 col-md-9 tv_details">
-                <div ng-repeat="castmember in tvshow.credits.cast | limitTo:8" class="col-sm-3 castmember">
+                <div ng-repeat="castmember in tvshow.credits.cast | limitTo:8" class="col-sm-3 castmember" ng-hide="castmember.profile_path == null">
                     <a href="#actor?id={{castmember.id}}"><img src="https://image.tmdb.org/t/p/w342{{castmember.profile_path}}" alt="" class="img-responsive"></a>
                     <p><b>{{castmember.name}}</b></p>
                     <p>as {{castmember.character}}</p>

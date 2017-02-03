@@ -24,20 +24,22 @@
                 </div>
             </div>
             <div id="overview" ng-show="tab===1" class="col-sm-8 col-md-9 movie_details">
-                <div class="rating">
-                    <p><i class="fa fa-star" aria-hidden="true"></i> {{tvshow.vote_average}}</p>
-                </div>
-                <p class="overview">{{tvshow.overview}}</p>
-                
-                <div class="row">
-                    <div class="col-sm-6">
-                        <p><span class="plabel">Status</span>: {{tvshow.status}}</p>
-                        <p class="genres"><span class="plabel">Genres</span>: <span ng-repeat="genres in tvshow.genres" ng-class="{'last': $last}">{{genres.name}}, </span></p>
+                <div class="colorbg">
+                    <div class="rating">
+                        <p><i class="fa fa-star" aria-hidden="true"></i> {{tvshow.vote_average}}</p>
                     </div>
+                    <p class="overview">{{tvshow.overview}}</p>
+                    
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p><span class="plabel">Status</span>: {{tvshow.status}}</p>
+                            <p class="genres"><span class="plabel">Genres</span>: <span ng-repeat="genres in tvshow.genres" ng-class="{'last': $last}">{{genres.name}}, </span></p>
+                        </div>
 
-                    <div class="col-sm-6">
-                        <p><span class="plabel">Premiered</span>: {{tvshow.first_air_date | date}}</p>
-                        <p><span class="plabel">Channel</span>: {{tvshow.networks[0].name}}</p>
+                        <div class="col-sm-6">
+                            <p><span class="plabel">Premiered</span>: {{tvshow.first_air_date | date}}</p>
+                            <p><span class="plabel">Channel</span>: {{tvshow.networks[0].name}}</p>
+                        </div>
                     </div>
                 </div>
 
@@ -62,7 +64,7 @@
             </div>
 
             <div id="cast" ng-show="tab===3" class="col-sm-8 col-md-9 tv_details">
-                <div ng-repeat="castmember in tvshow.credits.cast | limitTo:8" class="col-sm-3 castmember" ng-hide="castmember.profile_path == null">
+                <div ng-repeat="castmember in tvshow.credits.cast | limitTo:8" class="col-sm-3 col-xs-6 castmember" ng-hide="castmember.profile_path == null">
                     <a href="#actor?id={{castmember.id}}"><img src="https://image.tmdb.org/t/p/w342{{castmember.profile_path}}" alt="" class="img-responsive"></a>
                     <p><b>{{castmember.name}}</b></p>
                     <p>as {{castmember.character}}</p>

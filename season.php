@@ -20,7 +20,10 @@
             </div>
 
             <div id="overview" class="col-sm-8 col-md-9 movie_details season_overview">
-                <p class="overview">{{season.overview}}</p>
+                <div class="colorbg" ng-hide="season.overview=='' || season.overview==null">
+                    <p class="overview">{{season.overview}}</p>
+                </div>
+
                 <div class="row episodes" ng-repeat="episode in season.episodes">
                     <div class="col-sm-4">
                         <img src="https://image.tmdb.org/t/p/w185{{episode.still_path}}" alt="" class="img-responsive episode_thumbnail">

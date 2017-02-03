@@ -1,5 +1,5 @@
 <div class="container-fluid hero">
-    <div class="billboard" style="background-image:url('https://image.tmdb.org/t/p/original/{{hero.poster_path}}');"></div>
+    <div class="billboard" ></div>
     <div class="container movies">
         <div class="row">
             <div class="col-sm-12 heading_col">
@@ -14,7 +14,6 @@
                     </div>
                 </form>
             </div>
-
             <div class="col-md-2 col-sm-3 col-xs-6 preview_poster" ng-repeat="movie in movies | limitTo: 18" ng-hide="movie.poster_path == null">
                 <a class="result_image" href="#/movie?id={{movie.id}}"><img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" alt="" class="img-responsive"></a>
             </div>

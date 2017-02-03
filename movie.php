@@ -24,22 +24,24 @@
                 </div>
             </div>
             <div id="overview" ng-show="tab===1" class="col-sm-8 col-md-9 movie_details">
-                <div class="rating">
-                    <p><i class="fa fa-star" aria-hidden="true"></i> {{movie.vote_average}}</p>
-                </div>
-                <p class="overview">{{movie.overview}}</p>
-                
-                <div class="row">
-                    <div class="col-sm-6">
-                        <p class="release_date"><span class="plabel">Premiere Date</span>: {{movie.release_date}} - {{movie.status}}</p>
-                        <p class="runtime"><span class="plabel">Runtime</span>: {{movie.runtime}} minutes</p>
-                        <p class="genres"><span class="plabel">Genres</span>: <span ng-repeat="genres in movie.genres" ng-class="{'last': $last}">{{genres.name}}, </span></p>
+                <div class="colorbg">
+                    <div class="rating">
+                        <p><i class="fa fa-star" aria-hidden="true"></i> {{movie.vote_average}}</p>
                     </div>
+                    <p class="overview">{{movie.overview}}</p>
+                    
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="release_date"><span class="plabel">Premiere Date</span>: {{movie.release_date}} - {{movie.status}}</p>
+                            <p class="runtime"><span class="plabel">Runtime</span>: {{movie.runtime}} minutes</p>
+                            <p class="genres"><span class="plabel">Genres</span>: <span class="genre_name" ng-repeat="genres in movie.genres" ng-class="{'last': $last}">{{genres.name}}, </span></p>
+                        </div>
 
-                    <div class="col-sm-6">
-                        <p><span class="plabel">Revenue</span>: {{movie.revenue | currency}}</p>
-                        <p><span class="plabel">Estimated Budget</span>: {{movie.budget | currency}}</p>
-                        <p><span class="plabel">Production Company</span>: {{movie.production_companies[0].name}}</p>
+                        <div class="col-sm-6">
+                            <p ng-hide="movie.revenue==0"><span class="plabel">Revenue</span>: {{movie.revenue | currency}}</p>
+                            <p ng-hide="movie.budget==0"><span class="plabel">Estimated Budget</span>: {{movie.budget | currency}}</p>
+                            <p><span class="plabel">Production Company</span>: {{movie.production_companies[0].name}}</p>
+                        </div>
                     </div>
                 </div>
                 
@@ -49,7 +51,7 @@
                 
                 <div class="recommended" ng-hide="movie.recommendations.results.length==0">
                     <h3 class="section_heading">Recommended</h3>
-                    <div class="col-sm-2 col-xs-6 preview_poster" ng-repeat="recc_movie in movie.recommendations.results | limitTo:6">
+                    <div class="col-md-2 col-sm-3 col-xs-6 preview_poster" ng-repeat="recc_movie in movie.recommendations.results | limitTo:6">
                         <a class="result_image" href="#/movie?id={{recc_movie.id}}"><img src="https://image.tmdb.org/t/p/w300{{recc_movie.poster_path}}" alt="" class="img-responsive"></a>
                     </div>
                 </div>
@@ -62,7 +64,7 @@
             </div>
 
             <div id="cast" ng-show="tab===3" class="col-sm-8 col-md-9 movie_details">
-                <div ng-repeat="castmember in movie.credits.cast | limitTo:8" class="col-sm-3 castmember" ng-hide="castmember.profile_path == null">
+                <div ng-repeat="castmember in movie.credits.cast | limitTo:8" class="col-sm-3 col-xs-6 castmember" ng-hide="castmember.profile_path == null">
                     <a href="#actor?id={{castmember.id}}"><img src="https://image.tmdb.org/t/p/w342{{castmember.profile_path}}" alt="" class="img-responsive"></a>
                     <p><b>{{castmember.name}}</b></p>
                     <p>as {{castmember.character}}</p>

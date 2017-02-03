@@ -29,8 +29,10 @@ body {
 }
 
 .billboard {
+  /*style="background-image:url('https://image.tmdb.org/t/p/original/{{hero.poster_path}}');"*/
+  background: url(../img/hero.jpg) no-repeat 0 0;
   background-position: center center;
-  min-height: 639px;
+  min-height: 600px;
   margin-bottom: 30px;
   border-top: 1px solid #111;
   border-bottom: 1px solid #666;
@@ -197,22 +199,43 @@ p.error {
 }
 
 .actor {
-  background: #141414;
   border-top: 1px solid #333;
   padding-top: 30px;
 }
 .actor p.overview {
   line-height: 1.8em;
   margin-top: 30px;
+  margin-bottom: 45px;
 }
 .actor .preview_poster {
   min-height: 185px;
 }
 
+.colorbg {
+  background: #141414;
+  padding: 20px;
+  overflow: auto;
+  margin-bottom: 40px;
+}
+
+.actor_details .colorbg {
+  margin-top: 30px;
+  padding-bottom: 30px;
+}
+
 .featuredin {
-  margin-top: 40px;
+  margin-top: 20px;
   border-top: 1px solid #444;
-  padding-top: 50px;
+  padding-top: 40px;
+}
+.featuredin.nobdr {
+  margin-top: 0;
+  padding-top: 25px;
+  border-top: none;
+}
+
+iframe {
+  margin-top: 20px;
 }
 
 .year_aired {
@@ -325,10 +348,6 @@ h3.section_heading {
   color: #b8edff;
 }
 
-.season_overview p.overview {
-  margin-bottom: 50px;
-}
-
 h3.tagline {
   font-style: italic;
   font-size: 17px;
@@ -375,6 +394,10 @@ h3.tagline {
   margin-bottom: 10px;
 }
 
+select {
+  color: #333;
+}
+
 @media handheld, only screen and (min-width: 1200px) {
   .preview_poster {
     min-height: 276px;
@@ -384,6 +407,19 @@ h3.tagline {
 @media handheld, only screen and (max-width: 1200px) {
   .preview_poster {
     margin-bottom: 25px;
+  }
+
+  .actor .preview_poster {
+    min-height: 140px;
+  }
+
+  .movie_details .castmember, .movie_details .seasons, .tv_details .castmember, .tv_details .seasons {
+    min-height: 310px;
+  }
+}
+@media handheld, only screen and (max-width: 991px) {
+  .movie_details .castmember, .movie_details .seasons, .tv_details .castmember, .tv_details .seasons {
+    min-height: 250px;
   }
 }
 @media handheld, only screen and (max-width: 768px) {
@@ -396,9 +432,31 @@ h3.tagline {
     margin-top: 20px;
     margin-bottom: 20px;
   }
+
+  .movie_details .castmember, .movie_details .seasons, .tv_details .castmember, .tv_details .seasons {
+    min-height: 280px;
+  }
+
+  .result_main .list-group {
+    bottom: 0px;
+    margin-top: 40px;
+  }
+
+  .bg_container, .billboard {
+    min-height: 440px;
+    background-attachment: scroll;
+  }
+
+  h2.title {
+    font-size: 27px;
+  }
+
+  h3.tagline {
+    font-size: 16px;
+  }
 }
 @media handheld, only screen and (max-width: 498px) {
-  .bg_container {
+  .bg_container, .billboard {
     min-height: 320px;
     background-attachment: scroll;
   }

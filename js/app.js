@@ -75,7 +75,6 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
             $http.get("https://api.themoviedb.org/3/movie/upcoming?api_key=0f83568cb022f28816a16308dcc1371c")
                 .then(function(response) {
                 $scope.hero = response.data.results;
-                console.log($scope.hero);
                 $scope.votes=[];
                 $scope.highest_rated=0;
                 $scope.indexofarray=0;
@@ -84,7 +83,6 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                     $scope.votes.push($scope.hero[i].vote_count);
                 }
                 
-                console.log($scope.votes);
                 for(var j=0;j<$scope.votes.length;j++){
                     if($scope.votes[j]>$scope.highest_rated){
                         $scope.highest_rated=$scope.votes[j];
@@ -92,8 +90,6 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                     }
                 }
                 $scope.hero = response.data.results[$scope.indexofarray];
-                console.log($scope.hero);
-
             });
         }
 
@@ -114,6 +110,8 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                 $scope.movie = response.data;
                 $scope.movie.vote_average = Math.round( $scope.movie.vote_average * 10 ) / 10;
                 $scope.movie.release_date = $scope.movie.release_date.substr(0,4);
+                // var myEl = angular.element( document.querySelector( '.genres .last' ) );
+                console.log($('.genre_name').text());
 
                 if($scope.movie.videos.results.length){
                     $scope.getIframeSrc = function (videokey) {
@@ -121,10 +119,8 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                     };
                 }
                 console.log($scope.movie);
-
             });
         }
-
         $scope.loadMovieDetails();
     });
 
@@ -143,7 +139,6 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                 $scope.tvshow.end_date = $scope.tvshow.last_air_date.substr(0,4);
 
                 console.log($scope.tvshow);
-                console.log($scope.tvshow.videos.results.length);
 
                 if($scope.tvshow.videos.results.length){
                     $scope.getIframeSrc = function (videokey) {
@@ -182,7 +177,6 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
 
         $scope.tvid = $routeParams.tvid;
         $scope.season_number = $routeParams.season_number;
-        console.log($scope.season_number);
 
         $scope.loadSesasonDetails = function(){
 
@@ -191,12 +185,10 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                 $scope.tvshow = response.data;
             });
 
-             
-            $http.get("https://api.themoviedb.org/3/tv/"+$scope.tvid+"/season/"+$scope.season_number+"?api_key=0f83568cb022f28816a16308dcc1371c")
+            $http.get("https://api.themoviedb.org/3/tv/"+$scope.tvid+"/season/"+$scope.season_number+"?api_key=0f83568cb022f28816a16308dcc1371c&append_to_response=images")
                 .then(function(response) {
                 $scope.season = response.data;
                 $scope.season.air_date_year = $scope.season.air_date.substr(0,4);
-                console.log($scope.season );
             });
         }
 

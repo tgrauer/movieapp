@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <p><span class="plabel">Status</span>: {{tvshow.status}}</p>
-                            <p class="genres"><span class="plabel">Genres</span>: <span ng-repeat="genres in tvshow.genres" ng-class="{'last': $last}">{{genres.name}}, </span></p>
+                            <p class="genres"><span class="plabel">Genres</span>: <span ng-repeat="genres in tvshow.genres" ng-class="{'last': $last}">{{genres.name}}{{$last ? '' : ','}} </span></p>
                         </div>
 
                         <div class="col-sm-6">

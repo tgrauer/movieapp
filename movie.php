@@ -34,7 +34,7 @@
                         <div class="col-sm-6">
                             <p class="release_date"><span class="plabel">Premiere Date</span>: {{movie.release_date}} - {{movie.status}}</p>
                             <p class="runtime"><span class="plabel">Runtime</span>: {{movie.runtime}} minutes</p>
-                            <p class="genres"><span class="plabel">Genres</span>: <span class="genre_name" ng-repeat="genres in movie.genres" ng-class="{'last': $last}">{{genres.name}}, </span></p>
+                            <p class="genres"><span class="plabel">Genres</span>: <span class="genre_name" ng-repeat="genres in movie.genres" ng-class="{'last': $last}">{{genres.name}}{{$last ? '' : ','}} </span></p>
                         </div>
 
                         <div class="col-sm-6">

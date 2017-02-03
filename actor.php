@@ -7,7 +7,7 @@
         		<p ng-hide="actor.place_of_birth=='' || actor.place_of_birth==null"><span class="plabel">Birthplace</span>: {{actor.place_of_birth}}</p>
         		<p ng-hide="actor.homepage=='' || actor.homepage==null"><span class="plabel">Website</span>: <a target="_blank" href="{{actor.homepage}}">{{actor.homepage}}</a></p>
         	</div>
-            <div class="col-md-9 col-sm-8">
+            <div class="col-md-9 col-sm-8 nopadmob">
                 <div class="colorbg">
                 	<h2 class="title">{{actor.name}}</h2>
                 	<p class="overview">{{actor.biography}}</p>

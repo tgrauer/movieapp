@@ -235,6 +235,7 @@ p.error{
 	margin-top: 20px;
 	border-top:1px solid #444;
 	padding-top: 40px;
+	overflow:auto;
 	
 	&.nobdr{
 		margin-top: 0;
@@ -488,6 +489,16 @@ select{
 	h3.tagline{
 		font-size: 16px;
 	}
+
+	.movie_details, .result_main,.nopadmob{
+		// border:1px solid red;
+		padding: 0;
+	}
+
+	.episodes{
+		padding: 0 15px;
+	}
+
 }
 
 @media handheld, only screen and (max-width: 498px) { 

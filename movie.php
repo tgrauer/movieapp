@@ -23,6 +23,7 @@
                     <a href="" ng-click="tab=3" data-toggle="tab" class="list-group-item" ng-class="{'active':tab === 3}">Cast</a>
                 </div>
             </div>
+
             <div id="overview" ng-show="tab===1" class="col-sm-8 col-md-9 movie_details">
                 <div class="colorbg">
                     <div class="rating">
@@ -44,16 +45,9 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="embed-responsive embed-responsive-16by9" ng-show="movie.videos.results.length>0">
+
+                <div class="embed-responsive embed-responsive-16by9 col-sm-12 " ng-show="movie.videos.results.length>0">
                     <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(movie.videos.results[0].key)}}" frameborder="0" allowfullscreen></iframe>
-                </div>
-                
-                <div class="recommended" ng-hide="movie.recommendations.results.length==0">
-                    <h3 class="section_heading">Recommended</h3>
-                    <div class="col-md-2 col-sm-3 col-xs-6 preview_poster" ng-repeat="recc_movie in movie.recommendations.results | limitTo:6">
-                        <a class="result_image" href="#/movie?id={{recc_movie.id}}"><img src="https://image.tmdb.org/t/p/w300{{recc_movie.poster_path}}" alt="" class="img-responsive"></a>
-                    </div>
                 </div>
             </div>
 
@@ -70,7 +64,14 @@
                     <p>as {{castmember.character}}</p>
                 </div>
             </div>
-
+            
+            <div class="recommended col-sm-8 col-md-9 col-md-offset-3 col-sm-offset-4" ng-hide="movie.recommendations.results.length==0">
+                <h3 class="section_heading">Recommended</h3>
+                <div class="col-md-2 col-sm-3 col-xs-6 preview_poster" ng-repeat="recc_movie in movie.recommendations.results | limitTo:6">
+                    <a class="result_image" href="#/movie?id={{recc_movie.id}}"><img src="https://image.tmdb.org/t/p/w300{{recc_movie.poster_path}}" alt="" class="img-responsive"></a>
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>

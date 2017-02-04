@@ -1,6 +1,6 @@
 (function() {
 var movieApp = angular.module('movieApp', ['ngRoute']);
-    
+
     movieApp.config(function($routeProvider){
 
         $routeProvider
@@ -121,6 +121,7 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                 console.log($scope.movie);
             });
         }
+
         $scope.loadMovieDetails();
     });
 
@@ -153,22 +154,7 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                 }
             });
         }
-
-        // $scope.loadSesasonDetails = function(){
-
-        //     $scope.tvid = document.getElementById('tvid').value;
-        //     $scope.season_number = document.getElementById('season_number').value;
-             
-        //     $http.get("https://api.themoviedb.org/3/tv/"+$scope.tvid+"/season/"+$scope.season_number+"?api_key=0f83568cb022f28816a16308dcc1371c")
-        //         .then(function(response) {
-        //         $scope.season = response.data;
-        //         $scope.season.air_date_year = $scope.season.air_date.substr(0,4);
-        //         console.log($scope.season );
-        //     });
-        // }
-
-        // $scope.loadSesasonDetails();
-
+        
         $scope.loadTVShowDetails();
 
     });

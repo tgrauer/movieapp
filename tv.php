@@ -23,6 +23,7 @@
                     <a href="" ng-click="tab=3" data-toggle="tab" class="list-group-item" ng-class="{'active':tab === 3}">Cast</a>
                 </div>
             </div>
+            
             <div id="overview" ng-show="tab===1" class="col-sm-8 col-md-9 movie_details">
                 <div class="colorbg">
                     <div class="rating">
@@ -47,12 +48,6 @@
                     <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(tvshow.videos.results[0].key)}}" frameborder="0" allowfullscreen></iframe>
                 </div>
                 
-                <div class="recommended" ng-hide="tvshow.recommendations.results.length==0">
-                    <h3 class="section_heading">Recommended</h3>
-                    <div class="col-sm-2 col-xs-6 preview_poster" ng-repeat="recc_tvshow in tvshow.recommendations.results | limitTo:6">
-                        <a class="result_image" href="#/tv?id={{recc_tvshow.id}}"><img src="https://image.tmdb.org/t/p/w300{{recc_tvshow.poster_path}}" alt="" class="img-responsive"></a>
-                    </div>
-                </div>
             </div>
 
             <div id="gallery" ng-show="tab===2" class="col-sm-8 col-md-9 gallery tv_details" ng-show="show_seasons()">
@@ -68,6 +63,13 @@
                     <a href="#actor?id={{castmember.id}}"><img src="https://image.tmdb.org/t/p/w342{{castmember.profile_path}}" alt="" class="img-responsive"></a>
                     <p><b>{{castmember.name}}</b></p>
                     <p>as {{castmember.character}}</p>
+                </div>
+            </div>
+
+            <div class="recommended col-sm-8 col-md-9 col-md-offset-3 col-sm-offset-4" ng-hide="tvshow.recommendations.results.length==0">
+                <h3 class="section_heading">Recommended</h3>
+                <div class="col-sm-2 col-xs-6 preview_poster" ng-repeat="recc_tvshow in tvshow.recommendations.results | limitTo:6">
+                    <a class="result_image" href="#/tv?id={{recc_tvshow.id}}"><img src="https://image.tmdb.org/t/p/w300{{recc_tvshow.poster_path}}" alt="" class="img-responsive"></a>
                 </div>
             </div>
 

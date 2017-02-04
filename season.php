@@ -26,7 +26,7 @@
 
                 <div class="row episodes" ng-repeat="episode in season.episodes">
                     <div class="col-sm-4">
-                        <img src="https://image.tmdb.org/t/p/w185{{episode.still_path}}" alt="" class="img-responsive episode_thumbnail">
+                        <img src="https://image.tmdb.org/t/p/w320{{episode.still_path}}" alt="" class="img-responsive episode_thumbnail">
                     </div>
 
                     <div class="col-sm-8">

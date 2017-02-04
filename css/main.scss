@@ -76,7 +76,7 @@ p.error{
 }
 
 .header{
-	background:#222;
+	background:#141414;
 	.container{
 		position:relative;
 	}
@@ -98,7 +98,7 @@ p.error{
 
 	.form-holder{
 		margin-bottom: 0;
-		border: 1px solid darken(#3f3f3f,4%);
+		border: 1px solid darken(#3f3f3f,6%);
 		background: #000;
 		height: 42px;
 		margin-bottom: 10px;
@@ -223,7 +223,7 @@ p.error{
 	background:#141414;
 	padding: 20px;
 	overflow:auto;
-	margin-bottom: 40px;
+	margin-bottom: 30px;
 }
 
 .actor_details .colorbg{
@@ -299,10 +299,14 @@ h3.section_heading{
 	}
 }
 
+#overview.movie_details{
+	margin-bottom: 0px;
+}
 .movie_details, .tv_details{
 	// background: rgba(0,0,0,0.8);
 	margin-top: 40px;
-	margin-bottom: 50px;
+	margin-bottom: 40px;
+	overflow:auto;
 
 	h2.title{
 		margin-top: 15px;
@@ -388,6 +392,7 @@ h3.tagline{
 .recommended{
 	border-top:1px solid #444;
 	padding-top: 50px;
+	clear:both;
 }
 
 .episodes{
@@ -418,6 +423,9 @@ h3.tagline{
 }
 
 .episode_thumbnail{
+	margin:0 auto;
+	margin-bottom: 15px;
+	display:block;
 	border:1px solid #222;
 	&:hover{
 		border:1px solid #555;
@@ -458,6 +466,22 @@ select{
 	.movie_details .castmember, .movie_details .seasons, .tv_details .castmember, .tv_details .seasons{
 		min-height:250px;
 	}
+	.actor .preview_poster {
+	    min-height: 80px;
+	}
+
+	.bg_container, .billboard{
+		min-height:420px;
+		background-attachment:scroll;
+	}
+
+	.billboard{
+		background-size:200%;
+	}
+
+	.poster{
+		margin-top: 0;
+	}
 }
 
 @media handheld, only screen and (max-width: 768px) { 
@@ -472,14 +496,22 @@ select{
 		min-height:280px;
 	}
 
+	.movie_details .castmember{
+		min-height:310px;
+	}
+
 	.result_main .list-group {
 	    bottom: 0px; 
 	    margin-top: 40px;
 	}
 
 	.bg_container, .billboard{
-		min-height:440px;
+		min-height:400px;
 		background-attachment:scroll;
+	}
+
+	.billboard{
+		background-size:185%;
 	}
 
 	h2.title{
@@ -497,14 +529,29 @@ select{
 
 	.episodes{
 		padding: 0 15px;
+		p{text-align: center;}
 	}
 
 }
 
-@media handheld, only screen and (max-width: 498px) { 
+@media handheld, only screen and (max-width: 630px) { 
+	.billboard{
+		background-size:175%;
+	}
+
 	.bg_container, .billboard{
-		min-height:320px;
-		background-attachment:scroll;
+		min-height:330px;
+	}
+}
+
+@media handheld, only screen and (max-width: 498px) { 
+
+	.billboard{
+		background-size:165%;
+	}
+
+	.bg_container, .billboard{
+		min-height:230px;
 	}
 
 	.logo{
@@ -513,6 +560,17 @@ select{
 
 	#searchMovieForm{
 		margin-top: 10px;
+	}
+}
+
+
+@media handheld, only screen and (max-width: 320px) { 
+	.billboard{
+		background-size:175%;
+	}
+
+	.bg_container, .billboard{
+		min-height:210px;
 	}
 }
 

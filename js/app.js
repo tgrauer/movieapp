@@ -24,8 +24,8 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                 controller:'SeasonCtrl'
             })
 
-            .when('/actor',{
-                templateUrl:'actor.php',
+            .when('/person',{
+                templateUrl:'person.php',
                 controller:'ActorCtrl'
             });
     });
@@ -33,18 +33,56 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
     movieApp.controller('SearchCtrl', function($scope, $http){
         $scope.formInfo = {};
         $scope.searched=false;
-        $scope.formInfo.searchtype='movie';
+        // $scope.formInfo.searchtype='movie';
 
         $scope.searchMovie=function(){
             
-            $http.get("https://api.themoviedb.org/3/search/"+$scope.formInfo.searchtype+"?api_key=0f83568cb022f28816a16308dcc1371c&query="+$scope.formInfo.searchterm)
+            $http.get("https://api.themoviedb.org/3/search/multi?api_key=0f83568cb022f28816a16308dcc1371c&query="+$scope.formInfo.searchterm)
                 .then(function(response){
                 $scope.results = response.data.results;
                 $scope.searched=true;
-                console.log($scope.filter);
+                console.log($scope.results);
             });
         }
+
+        $scope.result_image= function(result){
+            $scope.display_image=false;
+
+            if(result.poster_path){
+                if(result.poster_path==null){
+                    $scope.display_image=false;
+                }else{
+                    $scope.display_image=true;
+                }
+            }else if(result.profile_path){
+                if(result.profile_path==null){
+                    $scope.display_image=false;
+                }else{
+                    $scope.display_image=true;
+                }
+            }
+
+            return $scope.display_image;
+        }
     });
+
+    // movieApp.directive('searchFilter', function($compile){
+
+    //     return{
+    //         restrict:'A',
+    //         replace:false,
+    //         templateUrl:'index.php',
+    //         scope: {
+    //             searchResult: '='
+                
+    //         },
+    //         link: function(scope, element, attribute) {
+    //               console.log(scope.searchResult);
+    //             }
+            
+    //     }
+
+    // });
 
     movieApp.controller('MainCtrl',function($scope, $http){
 
@@ -154,7 +192,7 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                 }
             });
         }
-        
+
         $scope.loadTVShowDetails();
 
     });

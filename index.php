@@ -27,7 +27,7 @@
 <body ng-app='movieApp'>
 
     <div class="container-fluid header">
-        <div class="container" ng-controller="SearchCtrl as search">
+        <div class="container" ng-controller="SearchCtrl">
             <div class="row">
                 <div class="col-sm-4">
                     <a href="#/"><img src="img/logo.png" alt="" class="img-responsive logo"></a>
@@ -40,8 +40,6 @@
                             </div>
                             <input type="submit" class="btn btn-md" value="Search">
                         </div>
-                        <label class="radio-inline"><input ng-checked="true" ng-model="formInfo.searchtype" type="radio" name="searchtype" value="movie">Movies</label>
-                        <label class="radio-inline"><input ng-model="formInfo.searchtype" type="radio" name="searchtype" value="tv">TV Show</label>
                     </form>
 
                     <p class="error" ng-show="searched && !results.length">No results found</p>
@@ -52,9 +50,8 @@
                 <div class="col-sm-12">
                     <h2>Search Results</h2>
                     <a class="closeBtn" ng-click="searched=false"><i class="fa fa-times-circle fa-2x" aria-hidden="true"></i></a>
-                    
-                    <div class="col-md-2 col-sm-3 col-xs-6 preview_poster" ng-repeat="result in results | limitTo:12" ng-hide="result.poster_path == null || result.original_language !='en'">
-                        <a ng-click="$parent.searched=false" class="result_image" href="#/{{formInfo.searchtype}}?id={{result.id}}"><img src="https://image.tmdb.org/t/p/w342{{result.poster_path}}" alt="" class="img-responsive"></a>
+                    <div class="col-md-2 col-sm-3 col-xs-6 preview_poster" ng-repeat="result in results | limitTo:12" ng-show="{{result_image(result)}}">
+                        <a ng-click="$parent.searched=false" class="result_image" href="#/{{result.media_type}}?id={{result.id}}"><img src="https://image.tmdb.org/t/p/w342{{result.poster_path || result.profile_path}}" alt="" class="img-responsive"></a>
                     </div>
                 </div>
             </div>

@@ -60,7 +60,7 @@
 
             <div id="cast" ng-show="tab===3" class="col-sm-8 col-md-9 tv_details">
                 <div ng-repeat="castmember in tvshow.credits.cast | limitTo:8" class="col-sm-3 col-xs-6 castmember" ng-hide="castmember.profile_path == null">
-                    <a href="#actor?id={{castmember.id}}"><img src="https://image.tmdb.org/t/p/w342{{castmember.profile_path}}" alt="" class="img-responsive"></a>
+                    <a href="#person?id={{castmember.id}}"><img src="https://image.tmdb.org/t/p/w342{{castmember.profile_path}}" alt="" class="img-responsive"></a>
                     <p><b>{{castmember.name}}</b></p>
                     <p>as {{castmember.character}}</p>
                 </div>

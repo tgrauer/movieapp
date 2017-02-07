@@ -1,7 +1,6 @@
 (function() {
-var movieApp = angular.module('movieApp', ['ngRoute']);
-
-    movieApp.config(function($routeProvider){
+var movieApp = angular.module('movieApp', ['ngRoute'])
+    .config(function($routeProvider){
 
         $routeProvider
             .when('/', {
@@ -19,7 +18,7 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                 controller:'TVShowCtrl'
             })
 
-            .when('/season/:id',{
+            .when('/season/:id/:season_number',{
                 templateUrl:'season.php',
                 controller:'SeasonCtrl'
             })
@@ -28,9 +27,9 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                 templateUrl:'person.php',
                 controller:'PersonCtrl'
             });
-    });
+    })
 
-    movieApp.controller('SearchCtrl', function($scope, $http){
+    .controller('SearchCtrl', function($scope, $http){
         $scope.formInfo = {};
         $scope.searched=false;
         // $scope.formInfo.searchtype='movie';
@@ -64,27 +63,9 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
 
             return $scope.display_image;
         }
-    });
+    })
 
-    // movieApp.directive('searchFilter', function($compile){
-
-    //     return{
-    //         restrict:'A',
-    //         replace:false,
-    //         templateUrl:'index.php',
-    //         scope: {
-    //             searchResult: '='
-                
-    //         },
-    //         link: function(scope, element, attribute) {
-    //               console.log(scope.searchResult);
-    //             }
-            
-    //     }
-
-    // });
-
-    movieApp.controller('MainCtrl',function($scope, $http){
+    .controller('MainCtrl',function($scope, $http){
 
         $scope.movie_filter='now_playing';
 
@@ -133,9 +114,9 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
         }
 
         $scope.load_hero();
-    });
+    })
 
-    movieApp.controller('MovieCtrl', function($scope, $http, $routeParams){
+    .controller('MovieCtrl', function($scope, $http, $routeParams){
 
         $scope.loadMovieDetails = function(){
 
@@ -160,9 +141,9 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
         }
 
         $scope.loadMovieDetails();
-    });
+    })
 
-    movieApp.controller('TVShowCtrl', function($scope, $http, $routeParams){
+    .controller('TVShowCtrl', function($scope, $http, $routeParams){
 
         $scope.loadTVShowDetails = function(){
 
@@ -194,21 +175,22 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
 
         $scope.loadTVShowDetails();
 
-    });
+    })
 
-    movieApp.controller('SeasonCtrl', function($scope, $http, $routeParams){
+    .controller('SeasonCtrl', function($scope, $http, $routeParams){
 
-        $scope.tvid = $routeParams.tvid;
+        $scope.id = $routeParams.id;
         $scope.season_number = $routeParams.season_number;
+        console.log($scope.id +' : '+ $scope.season_number);
 
         $scope.loadSesasonDetails = function(){
 
-            $http.get("https://api.themoviedb.org/3/tv/"+$scope.tvid+"?api_key=0f83568cb022f28816a16308dcc1371c&append_to_response=images")
+            $http.get("https://api.themoviedb.org/3/tv/"+$scope.id+"?api_key=0f83568cb022f28816a16308dcc1371c&append_to_response=images")
                 .then(function(response) {
                 $scope.tvshow = response.data;
             });
 
-            $http.get("https://api.themoviedb.org/3/tv/"+$scope.tvid+"/season/"+$scope.season_number+"?api_key=0f83568cb022f28816a16308dcc1371c&append_to_response=images")
+            $http.get("https://api.themoviedb.org/3/tv/"+$scope.id+"/season/"+$scope.season_number+"?api_key=0f83568cb022f28816a16308dcc1371c&append_to_response=images")
                 .then(function(response) {
                 $scope.season = response.data;
                 $scope.season.air_date_year = $scope.season.air_date.substr(0,4);
@@ -217,34 +199,9 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
 
         $scope.loadSesasonDetails();
 
-    });
+    })
 
-    // movieApp.controller('EpisodeCtrl', function($scope, $http){
-
-    //     $scope.loadSesasonDetails = function(){
-
-    //         $scope.tvid = document.getElementById('tvid').value;
-    //         $scope.season_number = document.getElementById('season_number').value;
-    //         $scope.episode_number = document.getElementById('episode_number').value;
-             
-    //         $http.get("https://api.themoviedb.org/3/tv/"+$scope.tvid+"/season/"+$scope.season_number+"/episode/"+$scope.episode_number+"?api_key=0f83568cb022f28816a16308dcc1371c")
-    //             .then(function(response) {
-
-    //             $scope.episode = response.data;
-    //             $scope.episode.vote_average = Math.round( $scope.episode.vote_average * 10 ) / 10;
-    //             $scope.episode.air_date_year = $scope.episode.air_date.substr(0,4);
-    //             $scope.episode.air_date_month = $scope.episode.air_date.substr(5,2);
-    //             $scope.episode.air_date_day = $scope.episode.air_date.substr(8,2);
-    //             $scope.episode.airdate_frmt = $scope.episode.air_date_month+'-'+$scope.episode.air_date_day+'-'+$scope.episode.air_date_year;
-    //             console.log($scope.episode );
-    //         });
-    //     }
-
-    //     $scope.loadSesasonDetails();
-
-    // });
-
-    movieApp.controller('PersonCtrl', function($scope,$http, $routeParams){
+    .controller('PersonCtrl', function($scope,$http, $routeParams){
 
         $scope.id = $routeParams.id;
 
@@ -257,15 +214,16 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
             });
         }
         $scope.loadActor();
-    });
+    })
     
 
-    movieApp.config(["$sceDelegateProvider", function($sceDelegateProvider) {
+    .config(["$sceDelegateProvider", function($sceDelegateProvider) {
         $sceDelegateProvider.resourceUrlWhitelist([
             'self',
             "https://www.youtube.com/embed/**"
         ]);
-    }]);
+    }])
 
+;
 
 })();

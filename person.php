@@ -20,14 +20,14 @@
             	<div class="col-sm-12 featuredin nobdr" ng-show="actor.movie_credits.cast.length >0">
     				<h3 class="section_heading">Movies appeared in</h3>
     				<div class="col-sm-2 col-xs-6 preview_poster" ng-repeat="featured in actor.movie_credits.cast | limitTo:12 | orderBy: '-release_date'" ng-hide="featured.poster_path==null">
-    					<a class="result_image" href="#/movie?id={{featured.id}}"><img src="https://image.tmdb.org/t/p/w300{{featured.poster_path}}" alt="" class="img-responsive"></a>
+    					<a class="result_image" href="#/movie/{{featured.id}}"><img src="https://image.tmdb.org/t/p/w300{{featured.poster_path}}" alt="" class="img-responsive"></a>
     				</div>
             	</div>
 
 				<div class="col-sm-12 featuredin" ng-show="actor.tv_credits.cast.length >0">
 					<h3 class="section_heading">TV Shows appeared in</h3>
 					<div class="col-sm-2 col-xs-6 preview_poster" ng-repeat="featured in actor.tv_credits.cast | limitTo:12 | orderBy: '-release_date'" ng-hide="featured.poster_path==null">
-						<a class="result_image" href="#/tv?id={{featured.id}}"><img src="https://image.tmdb.org/t/p/w300{{featured.poster_path}}" alt="" class="img-responsive"></a>
+						<a class="result_image" href="#/tv/{{featured.id}}"><img src="https://image.tmdb.org/t/p/w300{{featured.poster_path}}" alt="" class="img-responsive"></a>
 					</div>
 	        	</div>
             </div>

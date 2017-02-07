@@ -9,24 +9,24 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                 controller:'MainCtrl'
             })
 
-            .when('/movie',{
+            .when('/movie/:id',{
                 templateUrl:'movie.php',
                 controller:'MovieCtrl'
             })
 
-            .when('/tv', {
+            .when('/tv/:id', {
                 templateUrl:'tv.php',
                 controller:'TVShowCtrl'
             })
 
-            .when('/season',{
+            .when('/season/:id',{
                 templateUrl:'season.php',
                 controller:'SeasonCtrl'
             })
 
-            .when('/person',{
+            .when('/person/:id',{
                 templateUrl:'person.php',
-                controller:'ActorCtrl'
+                controller:'PersonCtrl'
             });
     });
 
@@ -45,7 +45,7 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
             });
         }
 
-        $scope.result_image= function(result){
+        $scope.result_image=function(result){
             $scope.display_image=false;
 
             if(result.poster_path){
@@ -93,6 +93,7 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
             $http.get("https://api.themoviedb.org/3/movie/"+$scope.filter+"?api_key=0f83568cb022f28816a16308dcc1371c")
                 .then(function(response) {
                 $scope.movies = response.data.results;
+                console.log($scope.movies);
             });
         }
 
@@ -148,8 +149,6 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
                 $scope.movie = response.data;
                 $scope.movie.vote_average = Math.round( $scope.movie.vote_average * 10 ) / 10;
                 $scope.movie.release_date = $scope.movie.release_date.substr(0,4);
-                // var myEl = angular.element( document.querySelector( '.genres .last' ) );
-                console.log($('.genre_name').text());
 
                 if($scope.movie.videos.results.length){
                     $scope.getIframeSrc = function (videokey) {
@@ -220,32 +219,32 @@ var movieApp = angular.module('movieApp', ['ngRoute']);
 
     });
 
-    movieApp.controller('EpisodeCtrl', function($scope, $http){
+    // movieApp.controller('EpisodeCtrl', function($scope, $http){
 
-        $scope.loadSesasonDetails = function(){
+    //     $scope.loadSesasonDetails = function(){
 
-            $scope.tvid = document.getElementById('tvid').value;
-            $scope.season_number = document.getElementById('season_number').value;
-            $scope.episode_number = document.getElementById('episode_number').value;
+    //         $scope.tvid = document.getElementById('tvid').value;
+    //         $scope.season_number = document.getElementById('season_number').value;
+    //         $scope.episode_number = document.getElementById('episode_number').value;
              
-            $http.get("https://api.themoviedb.org/3/tv/"+$scope.tvid+"/season/"+$scope.season_number+"/episode/"+$scope.episode_number+"?api_key=0f83568cb022f28816a16308dcc1371c")
-                .then(function(response) {
+    //         $http.get("https://api.themoviedb.org/3/tv/"+$scope.tvid+"/season/"+$scope.season_number+"/episode/"+$scope.episode_number+"?api_key=0f83568cb022f28816a16308dcc1371c")
+    //             .then(function(response) {
 
-                $scope.episode = response.data;
-                $scope.episode.vote_average = Math.round( $scope.episode.vote_average * 10 ) / 10;
-                $scope.episode.air_date_year = $scope.episode.air_date.substr(0,4);
-                $scope.episode.air_date_month = $scope.episode.air_date.substr(5,2);
-                $scope.episode.air_date_day = $scope.episode.air_date.substr(8,2);
-                $scope.episode.airdate_frmt = $scope.episode.air_date_month+'-'+$scope.episode.air_date_day+'-'+$scope.episode.air_date_year;
-                console.log($scope.episode );
-            });
-        }
+    //             $scope.episode = response.data;
+    //             $scope.episode.vote_average = Math.round( $scope.episode.vote_average * 10 ) / 10;
+    //             $scope.episode.air_date_year = $scope.episode.air_date.substr(0,4);
+    //             $scope.episode.air_date_month = $scope.episode.air_date.substr(5,2);
+    //             $scope.episode.air_date_day = $scope.episode.air_date.substr(8,2);
+    //             $scope.episode.airdate_frmt = $scope.episode.air_date_month+'-'+$scope.episode.air_date_day+'-'+$scope.episode.air_date_year;
+    //             console.log($scope.episode );
+    //         });
+    //     }
 
-        $scope.loadSesasonDetails();
+    //     $scope.loadSesasonDetails();
 
-    });
+    // });
 
-    movieApp.controller('ActorCtrl', function($scope,$http, $routeParams){
+    movieApp.controller('PersonCtrl', function($scope,$http, $routeParams){
 
         $scope.id = $routeParams.id;
 

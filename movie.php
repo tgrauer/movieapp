@@ -1,5 +1,5 @@
 <div class="container-fluid bg_container" style="background-image:url('https://image.tmdb.org/t/p/original/{{movie.images.backdrops[0].file_path}}');"></div>
-
+{{id}}
 <div class="container-fluid result_title">
     <div class="container">
         <div class="row">
@@ -59,7 +59,7 @@
 
             <div id="cast" ng-show="tab===3" class="col-sm-8 col-md-9 movie_details">
                 <div ng-repeat="castmember in movie.credits.cast | limitTo:8" class="col-sm-3 col-xs-6 castmember" ng-hide="castmember.profile_path == null">
-                    <a href="#person?id={{castmember.id}}"><img src="https://image.tmdb.org/t/p/w342{{castmember.profile_path}}" alt="" class="img-responsive"></a>
+                    <a href="#person/{{castmember.id}}"><img src="https://image.tmdb.org/t/p/w342{{castmember.profile_path}}" alt="" class="img-responsive"></a>
                     <p><b>{{castmember.name}}</b></p>
                     <p>as {{castmember.character}}</p>
                 </div>
@@ -68,7 +68,7 @@
             <div class="recommended col-sm-8 col-md-9 col-md-offset-3 col-sm-offset-4" ng-hide="movie.recommendations.results.length==0">
                 <h3 class="section_heading">Recommended</h3>
                 <div class="col-md-2 col-sm-3 col-xs-6 preview_poster" ng-repeat="recc_movie in movie.recommendations.results | limitTo:6">
-                    <a class="result_image" href="#/movie?id={{recc_movie.id}}"><img src="https://image.tmdb.org/t/p/w300{{recc_movie.poster_path}}" alt="" class="img-responsive"></a>
+                    <a class="result_image" href="#/movie/{{recc_movie.id}}"><img src="https://image.tmdb.org/t/p/w300{{recc_movie.poster_path}}" alt="" class="img-responsive"></a>
                 </div>
             </div>
             

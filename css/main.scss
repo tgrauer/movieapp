@@ -193,11 +193,10 @@ p.error{
 }
 
 .poster{
-	margin-top:30px;
 	margin-bottom: 50px;
 	border:3px solid #888;
 	position:relative;
-	bottom:170px;
+	bottom:140px;
 }
 
 .poster.poster_orgpos{
@@ -295,7 +294,7 @@ h3.section_heading{
 
 	.list-group{
 		position:relative;
-		bottom:170px;
+		bottom:140px;
 	}
 }
 
@@ -321,7 +320,7 @@ h3.section_heading{
 
 		&.overview{
 			margin-bottom: 30px;
-			line-height:1.8em;
+			line-height:2.0em;
 		}
 
 		.plabel{
@@ -402,11 +401,11 @@ h3.tagline{
 	padding-bottom: 10px;
 	
 	.name{
-		font-size: 16px;
+		font-size: 21px;
 		font-weight: 700;
 
 		span{
-			color:$light_blue;
+			color:$blue;
 			font-weight: 700;
 		}
 	}
@@ -438,6 +437,9 @@ h3.tagline{
 
 select{
 	color:#333;
+}
+.actor_gallery{
+	margin-bottom: 20px;
 }
 
 @media handheld, only screen and (min-width: 1200px) { 
@@ -485,6 +487,9 @@ select{
 }
 
 @media handheld, only screen and (max-width: 768px) { 
+	.movie_details .movie_images img, .tv_details .movie_images img{
+		margin-left: 0;margin-right: 0;
+	}
 	.logo{
 		margin: 0 auto;
 		margin-top: 15px;
@@ -542,6 +547,8 @@ select{
 	.bg_container, .billboard{
 		min-height:330px;
 	}
+
+	.episodes .name{font-size: 17px;}
 }
 
 @media handheld, only screen and (max-width: 498px) { 
@@ -561,6 +568,8 @@ select{
 	#searchMovieForm{
 		margin-top: 10px;
 	}
+
+	.episodes .name{font-size: 16px;}
 }
 
 

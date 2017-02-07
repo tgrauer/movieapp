@@ -187,11 +187,10 @@ p.error {
 }
 
 .poster {
-  margin-top: 30px;
   margin-bottom: 50px;
   border: 3px solid #888;
   position: relative;
-  bottom: 170px;
+  bottom: 140px;
 }
 
 .poster.poster_orgpos {
@@ -285,7 +284,7 @@ h3.section_heading {
 }
 .result_main .list-group {
   position: relative;
-  bottom: 170px;
+  bottom: 140px;
 }
 
 #overview.movie_details {
@@ -308,7 +307,7 @@ h3.section_heading {
 }
 .movie_details p.overview, .tv_details p.overview {
   margin-bottom: 30px;
-  line-height: 1.8em;
+  line-height: 2.0em;
 }
 .movie_details p .plabel, .tv_details p .plabel {
   color: #b8edff;
@@ -373,11 +372,11 @@ h3.tagline {
   padding-bottom: 10px;
 }
 .episodes .name {
-  font-size: 16px;
+  font-size: 21px;
   font-weight: 700;
 }
 .episodes .name span {
-  color: #b8edff;
+  color: #297cc1;
   font-weight: 700;
 }
 .episodes .air_date {
@@ -406,6 +405,10 @@ h3.tagline {
 
 select {
   color: #333;
+}
+
+.actor_gallery {
+  margin-bottom: 20px;
 }
 
 @media handheld, only screen and (min-width: 1200px) {
@@ -450,6 +453,11 @@ select {
   }
 }
 @media handheld, only screen and (max-width: 768px) {
+  .movie_details .movie_images img, .tv_details .movie_images img {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .logo {
     margin: 0 auto;
     margin-top: 15px;
@@ -509,6 +517,10 @@ select {
   .bg_container, .billboard {
     min-height: 330px;
   }
+
+  .episodes .name {
+    font-size: 17px;
+  }
 }
 @media handheld, only screen and (max-width: 498px) {
   .billboard {
@@ -525,6 +537,10 @@ select {
 
   #searchMovieForm {
     margin-top: 10px;
+  }
+
+  .episodes .name {
+    font-size: 16px;
   }
 }
 @media handheld, only screen and (max-width: 320px) {

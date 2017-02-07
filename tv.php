@@ -60,16 +60,16 @@
 
             <div id="cast" ng-show="tab===3" class="col-sm-8 col-md-9 tv_details">
                 <div ng-repeat="castmember in tvshow.credits.cast | limitTo:8" class="col-sm-3 col-xs-6 castmember" ng-hide="castmember.profile_path == null">
-                    <a href="#person?id={{castmember.id}}"><img src="https://image.tmdb.org/t/p/w342{{castmember.profile_path}}" alt="" class="img-responsive"></a>
+                    <a href="#person/{{castmember.id}}"><img src="https://image.tmdb.org/t/p/w342{{castmember.profile_path}}" alt="" class="img-responsive"></a>
                     <p><b>{{castmember.name}}</b></p>
-                    <p>as {{castmember.character}}</p>
+                    <p ng-hide="castmember.character ==null || castmember.character==''">as {{castmember.character}}</p>
                 </div>
             </div>
 
             <div class="recommended col-sm-8 col-md-9 col-md-offset-3 col-sm-offset-4" ng-hide="tvshow.recommendations.results.length==0">
                 <h3 class="section_heading">Recommended</h3>
                 <div class="col-sm-2 col-xs-6 preview_poster" ng-repeat="recc_tvshow in tvshow.recommendations.results | limitTo:6">
-                    <a class="result_image" href="#/tv?id={{recc_tvshow.id}}"><img src="https://image.tmdb.org/t/p/w300{{recc_tvshow.poster_path}}" alt="" class="img-responsive"></a>
+                    <a class="result_image" href="#/tv/{{recc_tvshow.id}}"><img src="https://image.tmdb.org/t/p/w300{{recc_tvshow.poster_path}}" alt="" class="img-responsive"></a>
                 </div>
             </div>
 

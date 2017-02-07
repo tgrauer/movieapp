@@ -15,7 +15,7 @@
                 </form>
             </div>
             <div class="col-md-2 col-sm-3 col-xs-6 preview_poster" ng-repeat="movie in movies | limitTo: 18" ng-hide="movie.poster_path == null">
-                <a class="result_image" href="#/movie?id={{movie.id}}"><img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" alt="" class="img-responsive"></a>
+                <a class="result_image" href="#/movie/{{movie.id}}"><img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" alt="" class="img-responsive"></a>
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
         </div>
         
         <div class="col-md-2 col-sm-3 col-xs-6 preview_poster" ng-repeat="tvshow in tvshows | limitTo: 18" ng-hide="tvshow.poster_path == null">
-            <a class="result_image" href="#/tv?id={{tvshow.id}}"><img src="https://image.tmdb.org/t/p/w300{{tvshow.poster_path}}" alt="" class="img-responsive"></a>
+            <a class="result_image" href="#/tv/{{tvshow.id}}"><img src="https://image.tmdb.org/t/p/w300{{tvshow.poster_path}}" alt="" class="img-responsive"></a>
         </div>
     </div>
 </div>

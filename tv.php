@@ -51,7 +51,7 @@
             </div>
 
             <div id="gallery" ng-show="tab===2" class="col-sm-8 col-md-9 gallery tv_details" ng-show="show_seasons()">
-                <div class="col-sm-3 col-sm-4 col-xs-6 seasons" ng-repeat="season in tvshow.seasons | orderBy: '-air_date'" ng-hide="season.poster_path == null">
+                <div class="col-sm-3 col-sm-4 col-xs-6 seasons" ng-repeat="season in tvshow.seasons | orderBy: '-air_date'" ng-hide="season.poster_path == null || season.episode_count==0">
                     <a href="#season/{{tvshow.id}}/{{season.season_number}}"><img src="https://image.tmdb.org/t/p/w342{{season.poster_path}}" alt="" class="img-responsive"></a>
                     <p>{{season.air_date.substr(0,4)}}</p>
                     <p>{{season.episode_count}} Episodes</p>

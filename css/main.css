@@ -508,6 +508,11 @@ select {
   .episodes p {
     text-align: center;
   }
+
+  .row.episodes {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 @media handheld, only screen and (max-width: 630px) {
   .billboard {

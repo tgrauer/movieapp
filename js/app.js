@@ -65,7 +65,7 @@ var movieApp = angular.module('movieApp', ['ngRoute'])
         }
     })
 
-    .controller('MainCtrl',function($scope, $http){
+    .controller('MainCtrl', function($scope, $http){
 
         $scope.movie_filter='now_playing';
 

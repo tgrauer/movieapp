@@ -46,10 +46,10 @@
                 </div>
             </div>
 
-            <div class="row" ng-show="searched && results.length" id="results">
+            <div class="row" ng-show="$root.searched && results.length" id="results">
                 <div class="col-sm-12">
                     <h2>Search Results</h2>
-                    <a class="closeBtn" ng-click="searched=false"><i class="fa fa-times-circle fa-2x" aria-hidden="true"></i></a>
+                    <a class="closeBtn" ng-click="$rootsearched=false"><i class="fa fa-times-circle fa-2x" aria-hidden="true"></i></a>
                     <div class="col-md-2 col-sm-3 col-xs-6 preview_poster" ng-repeat="result in results | limitTo:12" ng-show="result_image(result)">
                         <a ng-click="$parent.searched=false" class="result_image" href="#/{{result.media_type}}/{{result.id}}"><img src="https://image.tmdb.org/t/p/w342{{result.poster_path || result.profile_path}}" alt="" class="img-responsive"></a>
                     </div>

@@ -27,11 +27,12 @@ var movieApp = angular.module('movieApp', ['ngRoute'])
                 templateUrl:'person.php',
                 controller:'PersonCtrl'
             });
+
     })
 
     .controller('SearchCtrl', function($scope, $http){
         $scope.formInfo = {};
-        $scope.searched=false;
+        $scope.$root.searched=false;
         // $scope.formInfo.searchtype='movie';
 
         $scope.searchMovie=function(){
@@ -39,7 +40,7 @@ var movieApp = angular.module('movieApp', ['ngRoute'])
             $http.get("https://api.themoviedb.org/3/search/multi?api_key=0f83568cb022f28816a16308dcc1371c&query="+$scope.formInfo.searchterm)
                 .then(function(response){
                 $scope.results = response.data.results;
-                $scope.searched=true;
+                $scope.$root.searched=true;
                 console.log($scope.results);
             });
         }
@@ -66,7 +67,7 @@ var movieApp = angular.module('movieApp', ['ngRoute'])
     })
 
     .controller('MainCtrl', function($scope, $http){
-
+        $scope.$root.searched=false;
         $scope.movie_filter='now_playing';
 
         $scope.loadMovies = function(){
@@ -117,7 +118,8 @@ var movieApp = angular.module('movieApp', ['ngRoute'])
     })
 
     .controller('MovieCtrl', function($scope, $http, $routeParams){
-
+        $scope.$root.searched=false;
+        
         $scope.loadMovieDetails = function(){
 
             $scope.id = $routeParams.id;
@@ -144,6 +146,7 @@ var movieApp = angular.module('movieApp', ['ngRoute'])
     })
 
     .controller('TVShowCtrl', function($scope, $http, $routeParams){
+        $scope.$root.searched=false;
 
         $scope.loadTVShowDetails = function(){
 
@@ -178,7 +181,7 @@ var movieApp = angular.module('movieApp', ['ngRoute'])
     })
 
     .controller('SeasonCtrl', function($scope, $http, $routeParams){
-
+        $scope.$root.searched=false;
         $scope.id = $routeParams.id;
         $scope.season_number = $routeParams.season_number;
         console.log($scope.id +' : '+ $scope.season_number);
@@ -202,7 +205,7 @@ var movieApp = angular.module('movieApp', ['ngRoute'])
     })
 
     .controller('PersonCtrl', function($scope,$http, $routeParams){
-
+        $scope.$root.searched=false;
         $scope.id = $routeParams.id;
 
         $scope.loadActor= function(){

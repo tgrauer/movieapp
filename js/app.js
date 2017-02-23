@@ -126,7 +126,6 @@ var movieApp = angular.module('movieApp', ['ngRoute'])
             $scope.overview=true;
             $scope.cast=false;
             $scope.tab=1;
-
             $http.get("https://api.themoviedb.org/3/movie/"+$scope.id+"?api_key=0f83568cb022f28816a16308dcc1371c&append_to_response=images,credits,recommendations,videos")
                 .then(function(response) {
                 $scope.movie = response.data;
